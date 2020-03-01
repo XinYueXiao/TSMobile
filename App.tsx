@@ -8,7 +8,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -26,13 +26,19 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-declare var global: { HermesInternal: null | {} };
-
+declare var global: {HermesInternal: null | {}};
+class TestWarn extends Component {
+  componentWillMount() {}
+  render() {
+    return null;
+  }
+}
 const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
+        <TestWarn />
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>

@@ -2041,6 +2041,11 @@ dayjs@^1.8.15:
   resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.8.20.tgz#724a5cb6ad1f6fc066b0bd9a800dedcc7886f19e"
   integrity sha512-mH0MCDxw6UCGJYxVN78h8ugWycZAO8thkj3bW6vApL5tS0hQplIDdAQcmbvl7n35H0AKdCJQaArTrIQw2xt4Qg==
 
+debounce@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npm.taobao.org/debounce/download/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
+  integrity sha1-RKVAq8DqmUMBjcDqqVzOh/Zc0TE=
+
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -5110,6 +5115,13 @@ react-native-gesture-handler@^1.6.0:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+react-native-screens@^2.0.0-beta.7:
+  version "2.0.0-beta.7"
+  resolved "https://registry.npm.taobao.org/react-native-screens/download/react-native-screens-2.0.0-beta.7.tgz#12f2bf09328c8e483d80fb9ff8d40fee0689a98c"
+  integrity sha1-EvK/CTKMjkg9gPuf+NQP7gaJqYw=
+  dependencies:
+    debounce "^1.2.0"
 
 react-native@0.61.5:
   version "0.61.5"
