@@ -4,8 +4,10 @@ import {
   StyleSheet,
   PermissionsAndroid,
   Platform,
-  Text,
 } from 'react-native';
+import {Provider} from 'react-redux';
+import {ReduxStore} from 'reduxState/store';
+import RootScreen from './RootScreen';
 
 const PERMISSIONS = [
   PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -14,19 +16,18 @@ const PERMISSIONS = [
 
 const App = () => {
   const [permissionsGranted, setPermissionsGranted] = React.useState(false);
-  //应用第一次渲染加载
+
   React.useEffect(() => {
-    //检查权限
     function checkPermissions() {
       if (Platform.OS === 'android') {
         PermissionsAndroid.requestMultiple(PERMISSIONS).then(results => {
-          const allPermissionsGranted = Object.values(
-            //检查每一项为true
-            results,
-          ).every(result => result === 'granted');
+          const allPermissionsGranted = Object.values(results).every(
+            result => result === 'granted',
+          );
           if (allPermissionsGranted) {
             setPermissionsGranted(true);
           } else {
+            //流氓逻辑，强制获取权限
             checkPermissions();
           }
         });
@@ -36,13 +37,14 @@ const App = () => {
     }
     checkPermissions();
   }, []);
+  //流氓逻辑，没权限白屏
   if (permissionsGranted) {
     return null;
   }
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>测试权限获取</Text>
-    </SafeAreaView>
+    <Provider store={ReduxStore}>
+      <RootScreen />
+    </Provider>
   );
 };
 
